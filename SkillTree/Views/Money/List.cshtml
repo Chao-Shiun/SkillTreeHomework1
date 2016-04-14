@@ -1,0 +1,35 @@
+﻿@model IEnumerable<SkillTree.Models.Money>
+<table class="table table-hover">
+    <th>
+
+        @Html.DisplayNameFor(model => model.Category)
+    </th>
+    <th>
+        @Html.DisplayNameFor(model => model.Amount)
+    </th>
+    <th>
+        @Html.DisplayNameFor(model => model.Date)
+    </th>
+    <th>
+        @Html.DisplayNameFor(model => model.Description)
+    </th>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <div style="color:@(item.Category=="存入"?"Blue":"Red")">
+                    @Html.DisplayFor(modelItem => item.Category)
+                </div>
+            </td>
+            <td>
+                $@Html.DisplayFor(modelItem => item.Amount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+        </tr>
+    }
+</table>
