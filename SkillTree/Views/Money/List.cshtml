@@ -1,7 +1,12 @@
 ﻿@model IEnumerable<SkillTree.Models.Money>
+@{
+    Layout = null;
+}
 <table class="table table-hover">
     <th>
-
+        @Html.DisplayNameFor(model => model.ID)
+    </th>
+    <th>
         @Html.DisplayNameFor(model => model.Category)
     </th>
     <th>
@@ -16,13 +21,14 @@
     @foreach (var item in Model)
     {
         <tr>
+            <td>@Html.DisplayFor(modelItem => item.ID)</td>
             <td>
-                <div style="color:@(item.Category=="存入"?"Blue":"Red")">
+                <div style="color:@(item.Category==" 存入"?"Blue":"Red")">
                     @Html.DisplayFor(modelItem => item.Category)
                 </div>
             </td>
             <td>
-                $@Html.DisplayFor(modelItem => item.Amount)
+                @Html.DisplayFor(modelItem => item.Amount)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Date)
